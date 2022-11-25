@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    public function get()
+    public function get(Request $request)
     {
         $items = item::all();
-        return view('get', ['items' => $items]);
+        return view('index', ['items' => $items]);
     }
 
     public function add()
     {
-        return "";
+        $form = $request->all();
+        item::create($form);
+        return redirect('/');
     }
 
     public function edit()
