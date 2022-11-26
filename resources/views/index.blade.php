@@ -84,14 +84,13 @@
         <input class="add_botton" type="submit" value="追加">
       </form>
       <table class="todo_table">
-        @foreach($items as $item)
-        @endforeach
         <tr class="subtitle">
           <th>作成日</th>
           <th>タスク名</th>
           <th>更新</th>
           <th>削除</th>
         </tr>
+        @foreach($items as $item)
         <tr>
           <td>
             {{$item -> created_at}}
@@ -108,6 +107,7 @@
             <input class="delete_botton" type="submit" value="削除">
           </td>
         </tr>
+        @endforeach
       </table>
     </div>
   </div>
