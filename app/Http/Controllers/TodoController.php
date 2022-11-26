@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\item;
+use App\Models\Item;
 use Illuminate\Http\Request;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
-    public function get(Request $request)
+    public function get()
     {
-        $items = item::all();
+        $items = Item::all();
         return view('index', ['items' => $items]);
     }
 
-    public function add()
+    public function add(TodoRequest $request)
     {
-        $form = $request->all();
-        item::create($form);
+        $form = $request->todo();
+        Item::create($form);
         return redirect('/');
     }
 

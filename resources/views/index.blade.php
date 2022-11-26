@@ -84,6 +84,8 @@
         <input class="add_botton" type="submit" value="追加">
       </form>
       <table class="todo_table">
+        @foreach($items as $item)
+        @endforeach
         <tr class="subtitle">
           <th>作成日</th>
           <th>タスク名</th>
@@ -92,11 +94,11 @@
         </tr>
         <tr>
           <td>
-            {{$items -> created_at}}
+            {{$item -> created_at}}
           </td>
           <td>
             <form class="update" action="/update" method="post">
-              <input class="update_text" type="text" value ="{{$items -> todo}}">
+              <input class="update_text" type="text" value ="{{$item -> todo}}">
             </form>
           </td>
           <td>

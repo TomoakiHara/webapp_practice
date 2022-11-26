@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\item;
+use App\Models\Item;
 
 class itemsTableSeeder extends Seeder
 {
@@ -18,6 +18,6 @@ class itemsTableSeeder extends Seeder
             'id' => 1,
             'todo' => 'anything'
         ];
-    item::create($param);
+    Item::create($param);
     }
 }
