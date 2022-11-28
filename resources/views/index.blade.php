@@ -51,6 +51,10 @@
     .subtitle {
       font-size:10px;
     }
+    .update {
+      display:flex;
+      justify-content: space-between;
+    }
     .update_text {
       width:90%;
       padding:5px;
@@ -80,8 +84,9 @@
     <div class="contents">
       <h1 class="title">Todo List</h1>
       <form class="add" action="/add" method="post">
-        <input class="add_text" type="text">
+        <input class="add_text" name ="todo" type="text">
         <input class="add_botton" type="submit" value="追加">
+        @csrf
       </form>
       <table class="todo_table">
         <tr class="subtitle">
@@ -97,14 +102,23 @@
           </td>
           <td>
             <form class="update" action="/update" method="post">
-              <input class="update_text" type="text" value ="{{$item -> todo}}">
+              <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
+              @csrf
             </form>
           </td>
           <td>
-            <input class="update_botton" type="submit" value="更新">
+            <form class="update" action="/update" method="post">
+              <input class="update_botton" type="submit" value="更新">
+              <input type="hidden" id="id" name="id">
+              @csrf
+            </form>
           </td>
           <td>
-            <input class="delete_botton" type="submit" value="削除">
+            <form class="delete" action="/delete" method="post">
+              <input class="delete_botton" type="submit" value="削除">
+              <input type="hidden" id="id" name="id">
+            @csrf
+            </form>
           </td>
         </tr>
         @endforeach
