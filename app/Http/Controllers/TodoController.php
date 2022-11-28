@@ -23,6 +23,7 @@ class TodoController extends Controller
 
     public function edit(Request $request)
     {
+        // dd($request);
         $form = $request->all();
         unset($form['_token']);
         Item::where('id', $request->id)->update($form);
