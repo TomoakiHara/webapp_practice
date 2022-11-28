@@ -103,7 +103,7 @@
         <form class="update" action="/update" method="post">
         @csrf
           <td>
-              <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
+            <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
           </td>
           <td>
             <input class="update_botton" type="submit" value="更新">
@@ -112,7 +112,6 @@
           <td>
             <form class="delete" action="/delete" method="post">
               <input class="delete_botton" type="submit" value="削除">
-              <input type="hidden" id="id" name="id">
             @csrf
             </form>
           </td>

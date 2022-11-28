@@ -26,7 +26,7 @@ class TodoController extends Controller
         // dd($request);
         $form = $request->all();
         unset($form['_token']);
-        Item::where('id', $request->id)->update($form);
+        Item::where('id', 'todo', $request->input)->update($form);
         return redirect('/');
     }
 
