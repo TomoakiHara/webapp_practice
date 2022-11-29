@@ -17,18 +17,17 @@ class TodoController extends Controller
     {
         // ddd($request);
         $form = $request->all();
+        // dd($form);
         Item::create($form);
         return redirect('/');
     }
 
     public function edit(Request $request)
     {
-        // dd($request);
         $form = $request->all();
-        // dd($request->all());
         // dd($form);
         unset($form['_token']);
-        Item::where('id', $request->input)->update ($form);
+        Item::where('id', $request->id)->update ($form);
         return redirect('/');
     }
 

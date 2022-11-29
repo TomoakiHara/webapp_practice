@@ -100,7 +100,7 @@
           <td>
             {{$item -> created_at}}
           </td>
-        <form class="update" action="/update" method="post">
+        <form class="update" action="/update/?id={{$item->id}}" method="post">
         @csrf
           <td>
             <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
@@ -110,7 +110,7 @@
           </td>
         </form>
           <td>
-            <form class="delete" action="/delete" method="post">
+            <form class="delete" action="/delete/?id={{$item->id}}" method="post">
               <input class="delete_botton" type="submit" value="削除">
             @csrf
             </form>

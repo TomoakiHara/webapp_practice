@@ -18,5 +18,5 @@ Route::get('/', [TodoController::class, 'get']);
 // return view('index');
 // });
 Route::post('/add', [TodoController::class, 'add']);
-Route::post('/update', [TodoController::class, 'edit']);
-Route::post('/delete', [TodoController::class, 'delete']);
+Route::post('/update/?id={{$item->id}}', [TodoController::class, 'edit']);
+Route::post('/delete/?id={{$item->id}}', [TodoController::class, 'delete']);
