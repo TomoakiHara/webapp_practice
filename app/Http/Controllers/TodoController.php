@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TodoRequest;
 
 class TodoController extends Controller
 {
@@ -22,7 +23,7 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    public function edit(Request $request)
+    public function edit(TodoRequest $request)
     {
         $form = $request->all();
         // dd($form);

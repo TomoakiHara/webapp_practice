@@ -13,9 +13,14 @@ class TodoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        if ($condition->path() == '/add') {
+            return true;
+        } elseif ($condition->path() == '/update'){
+            return true;
+        } else {
+            return false;
+        }
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +29,7 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'todo' => 'required|min:0|max:20',
+            'todo' => 'required|max:20',
         ];
     }
 }
