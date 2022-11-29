@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
-use App\Http\Controllers\TodoRequest;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
@@ -14,7 +14,7 @@ class TodoController extends Controller
         return view('index', ['items' => $items]);
     }
 
-    public function add(Request $request)
+    public function add(TodoRequest $request)
     {
         // ddd($request);
         $form = $request->all();

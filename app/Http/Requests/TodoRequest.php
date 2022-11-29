@@ -13,9 +13,11 @@ class TodoRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($condition->path() == '/add') {
+        if ($this->path() == '/') {
             return true;
-        } elseif ($condition->path() == '/update'){
+        } elseif ($this->path() == '/add'){
+            return true;
+        } elseif ($this->path() == '/update'){
             return true;
         } else {
             return false;
