@@ -25,14 +25,17 @@ class TodoController extends Controller
     {
         // dd($request);
         $form = $request->all();
+        // dd($request->all());
+        // dd($form);
         unset($form['_token']);
-        Item::where('id', 'todo', $request->input)->update($form);
+        Item::where('id', $request->input)->update ($form);
         return redirect('/');
     }
 
     public function delete(Request $request)
     {
         $form = $request->all();
+        unset($form['_token']);
         Item::where('id', $request->id)->delete($form);
         return redirect('/');
     }
