@@ -83,6 +83,13 @@
   <div class="page">
     <div class="contents">
       <h1 class="title">Todo List</h1>
+      @if (count($errors) > 0)
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+      </ul>
+      @endif
       <form class="add" action="/add" method="post">
         <input class="add_text" name ="todo" type="text">
         <input class="add_botton" type="submit" value="追加">
