@@ -108,11 +108,27 @@
       padding: 5px 10px;
     }
 
+    .tasksearch_botton{
+      background-color: white;
+      color:yellowgreen;
+      border:2px solid yellowgreen;
+      border-radius:5px;
+      font-size: 10px;
+      padding: 5px 10px;
+    }
 
+    .add_form {
+      margin-top:10px;
+    }
     .add {
       margin-bottom:15px;
       display:flex;
       justify-content: space-between;
+    }
+    .add_tag {
+      margin:0 5px;
+      border:1px solid gray;
+      border-radius:5px;
     }
     .add_text {
       width: 80%;
@@ -128,6 +144,7 @@
       font-size: 10px;
       padding: 5px 10px;
     }
+
     .todo_table {
       text-align: center;
       width: 100%;
@@ -138,6 +155,11 @@
     .update {
       display:flex;
       justify-content: space-between;
+    }
+    .update_tag {
+      padding:5px;
+      border:1px solid gray;
+      border-radius:5px;
     }
     .update_text {
       width:90%;
@@ -222,6 +244,7 @@
           <p class="login_text">{{$user->name.'でログイン中'}}</p>
           <form action="/logout" method="post">
             <input class="logout_botton" type="submit" value="ログアウト">
+            @csrf
           </form>
         </div>
         @if (count($errors) > 0)
@@ -234,19 +257,19 @@
       </section>
 
       <section class="todo_main">
-        <form action="" class="tasksearch_link" method="get">
+        <form action="/move_taskpage" class="tasksearch_link" method="get">
           <input class="tasksearch_botton" type="submit" value="タスク検索">
         </form>
 
         <div class="add_form">
           <form class="add" action="/add" method="post">
             <input class="add_text" name ="todo" type="text">
-            <select class="add_tag" name="tag">
-            家事
-            勉強
-            運動
-            食事
-            移動
+            <select class="add_tag" name="tag" value="家事">
+            <option value="家事">家事</option>
+            <option value="勉強">勉強</option>
+            <option value="運動">運動</option>
+            <option value="食事">食事</option>
+            <option value="移動">移動</option>
             </select>
             <input class="add_botton" type="submit" value="追加">
             @csrf
@@ -272,12 +295,12 @@
               <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
             </td>
             <td>
-              <select class="add_tag" name="tag" value="{{$item -> tag}}">
-            家事
-            勉強
-            運動
-            食事
-            移動
+              <select class="update_tag" name="tag" value="{{$items -> tag}}">
+                <option value="家事">家事</option>
+                <option value="勉強">勉強</option>
+                <option value="運動">運動</option>
+                <option value="食事">食事</option>
+                <option value="移動">移動</option>
               </select>
             </td>
             <td>

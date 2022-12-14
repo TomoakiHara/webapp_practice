@@ -21,9 +21,15 @@ class TodoController extends Controller
         $param = ['items' => $items, 'user' =>$user];
         return view('index', $param);
     }
+
     public function logout()
     {
         return redirect('/login');
+    }
+
+    public function move_taskpage()
+    {
+        return view('task');
     }
 
     public function add(TodoRequest $request)
@@ -32,7 +38,7 @@ class TodoController extends Controller
         $form = $request->all();
         // dd($form);
         Item::create($form);
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
     public function edit(TodoRequest $request)
@@ -41,7 +47,7 @@ class TodoController extends Controller
         // dd($form);
         unset($form['_token']);
         Item::where('id', $request->id)->update ($form);
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
     public function delete(Request $request)
@@ -49,6 +55,6 @@ class TodoController extends Controller
         $form = $request->all();
         unset($form['_token']);
         Item::where('id', $request->id)->delete($form);
-        return redirect('/');
+        return redirect('/dashboard');
     }
 }

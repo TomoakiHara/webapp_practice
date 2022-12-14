@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Item;
+use App\Models\Tag;
 
-class itemsTableSeeder extends Seeder
+class TagsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,8 @@ class itemsTableSeeder extends Seeder
     {
         $param = [
             'id' => 1,
-            'todo' => 'anything',
-            'tag_id' => 1,
+            'tag' => '勉強',
         ];
-    Item::create($param);
+    Tag::create($param);
     }
 }

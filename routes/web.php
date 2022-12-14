@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', [TodoController::class, 'register']);
 Route::get('/dashboard', [TodoController::class, 'get']);
-// Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::get('/move_taskpage', [TodoController::class, 'move_taskpage']);
 Route::post('/add', [TodoController::class, 'add']);
 Route::post('/update', [TodoController::class, 'edit']);
 Route::post('/delete', [TodoController::class, 'delete']);

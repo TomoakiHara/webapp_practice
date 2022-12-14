@@ -9,5 +9,12 @@ class item extends Model
 {
     use HasFactory;
 
+    protected $guarded = array('id');
     protected $fillable = ['id','todo'];
+
+    public function tag()
+    {
+        return $this->belongsTo('App\Models\Tag');
+    }
+
 }
