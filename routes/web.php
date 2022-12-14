@@ -13,10 +13,21 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [TodoController::class, 'get']);
-// Route::post('/add', function() {
-// return view('index');
+
+// Route::get('/', function () {
+//     return view('welcome');
 // });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::get('/', [TodoController::class, 'register']);
+Route::get('/dashboard', [TodoController::class, 'get']);
+// Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::post('/add', [TodoController::class, 'add']);
 Route::post('/update', [TodoController::class, 'edit']);
 Route::post('/delete', [TodoController::class, 'delete']);
+
+
+require __DIR__.'/auth.php';

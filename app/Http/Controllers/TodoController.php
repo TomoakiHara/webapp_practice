@@ -5,13 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
+    public function register()
+    {
+        return redirect('/register');
+    }
+    
     public function get()
     {
+        $user = Auth::user();
         $items = Item::all();
-        return view('index', ['items' => $items]);
+        $param = ['items' => $items, 'user' =>$user];
+        return view('index', $param);
+    }
+    public function logout()
+    {
+        return redirect('/login');
     }
 
     public function add(TodoRequest $request)
