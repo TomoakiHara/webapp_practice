@@ -19,8 +19,9 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $items = Item::all();
-        $tags = Tag::all();
-        $param = ['items' => $items, 'tags' => $tags, 'user' =>$user];
+        // $tags = Tag::all();
+        // $param = ['items' => $items, 'tags' => $tags, 'user' =>$user];
+        $param = ['items' => $items, 'user' =>$user];
         return view('index', $param);
     }
 

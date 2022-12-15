@@ -264,12 +264,12 @@
         <div class="add_form">
           <form class="add" action="/add" method="post">
             <input class="add_text" name ="todo" type="text">
-            <select class="add_tag" name="tag">
-              <option value="家事">家事</option>
-              <option value="勉強">勉強</option>
-              <option value="運動">運動</option>
-              <option value="食事">食事</option>
-              <option value="移動">移動</option>
+            <select class="add_tag" name="tag_id">
+              <option value="1">家事</option>
+              <option value="2">勉強</option>
+              <option value="3">運動</option>
+              <option value="4">食事</option>
+              <option value="5">移動</option>
             </select>
             <input class="add_botton" type="submit" value="追加">
             @csrf
@@ -301,6 +301,18 @@
                 <option value="3">運動</option>
                 <option value="4">食事</option>
                 <option value="5">移動</option>
+                @switch ($tag)
+                  @case (1)
+                  <option value="1" selected>家事</option>@break
+                  @case (2)
+                  <option value="2" selected>勉強</option>@break
+                  @case (3)
+                  <option value="3" selected>運動</option>@break
+                  @case (4)
+                  <option value="4" selected>食事</option>@break
+                  @case (5)
+                  <option value="5" selected>移動</option>@break
+                @endswitch
               </select>
             </td>
             <td>
