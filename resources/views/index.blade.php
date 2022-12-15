@@ -84,11 +84,11 @@
       padding:10px 20px;
       border-radius:10px;
     }
-    .task_top {
+    .todo_top {
       display:flex;
       justify-content: space-between;
     }
-      .login {
+    .login {
       display:flex;
       justify-content: space-between;
     }
@@ -238,7 +238,7 @@
 
   <div class="page">
     <article class="todo_contents">
-      <section class="task_top">
+      <section class="todo_top">
         <h1 class="todo_title">Todo List</h1>
         <div class="login">
           <p class="login_text">{{$user->name.'でログイン中'}}</p>
@@ -264,12 +264,12 @@
         <div class="add_form">
           <form class="add" action="/add" method="post">
             <input class="add_text" name ="todo" type="text">
-            <select class="add_tag" name="tag" value="家事">
-            <option value="家事">家事</option>
-            <option value="勉強">勉強</option>
-            <option value="運動">運動</option>
-            <option value="食事">食事</option>
-            <option value="移動">移動</option>
+            <select class="add_tag" name="tag">
+              <option value="家事">家事</option>
+              <option value="勉強">勉強</option>
+              <option value="運動">運動</option>
+              <option value="食事">食事</option>
+              <option value="移動">移動</option>
             </select>
             <input class="add_botton" type="submit" value="追加">
             @csrf
@@ -295,12 +295,12 @@
               <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
             </td>
             <td>
-              <select class="update_tag" name="tag" value="{{$items -> tag}}">
-                <option value="家事">家事</option>
-                <option value="勉強">勉強</option>
-                <option value="運動">運動</option>
-                <option value="食事">食事</option>
-                <option value="移動">移動</option>
+              <select class="update_tag" name="tag_id">
+                <option value="1">家事</option>
+                <option value="2">勉強</option>
+                <option value="3">運動</option>
+                <option value="4">食事</option>
+                <option value="5">移動</option>
               </select>
             </td>
             <td>
