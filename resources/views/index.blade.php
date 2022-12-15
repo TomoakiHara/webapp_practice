@@ -296,23 +296,31 @@
             </td>
             <td>
               <select class="update_tag" name="tag_id">
-                <option value="1">家事</option>
+                @if($item->tag_id === 1)
+                <option value="1" selected>家事</option>
+                @else
+                <option value="1" >家事</option>
+                @endif
+                @if($item->tag_id === 2)
+                <option value="2" selected>勉強</option>
+                @else
                 <option value="2">勉強</option>
+                @endif
+                @if($item->tag_id === 3)
+                <option value="3" selected>運動</option>
+                @else
                 <option value="3">運動</option>
+                @endif
+                @if($item->tag_id === 4)
+                <option value="4" selected>食事</option>
+                @else
                 <option value="4">食事</option>
+                @endif
+                @if($item->tag_id === 5)
+                <option value="5" selected>移動</option>
+                @else
                 <option value="5">移動</option>
-                @switch ($tag)
-                  @case (1)
-                  <option value="1" selected>家事</option>@break
-                  @case (2)
-                  <option value="2" selected>勉強</option>@break
-                  @case (3)
-                  <option value="3" selected>運動</option>@break
-                  @case (4)
-                  <option value="4" selected>食事</option>@break
-                  @case (5)
-                  <option value="5" selected>移動</option>@break
-                @endswitch
+                @endif
               </select>
             </td>
             <td>

@@ -26,10 +26,12 @@ use App\Http\Controllers\TaskController;
 Route::get('/', [TodoController::class, 'register']);
 Route::get('/dashboard', [TodoController::class, 'get']);
 Route::get('/move_taskpage', [TodoController::class, 'move_taskpage']);
-Route::get('/move_todopage', [TodoController::class, 'move_todopage']);
 Route::post('/add', [TodoController::class, 'add']);
 Route::post('/update', [TodoController::class, 'edit']);
 Route::post('/delete', [TodoController::class, 'delete']);
 
-
+Route::get('/move_todopage', [taskController::class, 'move_todopage']);
+// Route::post('/search', [TaskController::class, 'search']);
+// Route::post('/update', [TaskController::class, 'edit']);
+// Route::post('/delete', [TaskController::class, 'delete']);
 require __DIR__.'/auth.php';

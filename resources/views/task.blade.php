@@ -148,12 +148,12 @@
       <div class="search_form">
         <form class="search" action="/serach" method="post">
           <input class="search_text" name ="todo" type="text">
-          <select class="search_tag" name="tag" value="家事">
-            <option value="家事">家事</option>
-            <option value="勉強">勉強</option>
-            <option value="運動">運動</option>
-            <option value="食事">食事</option>
-            <option value="移動">移動</option>
+          <select class="search_tag" name="tag_id">
+            <option value="1">家事</option>
+            <option value="2">勉強</option>
+            <option value="3">運動</option>
+            <option value="4">食事</option>
+            <option value="5">移動</option>
           </select>
           <input class="search_botton" type="submit" value="検索">
           @csrf
@@ -179,12 +179,12 @@
               <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
             </td>
             <td>
-              <select class="update_tag" name="tag" value="{{$item -> tag}}">
-                <option value="家事">家事</option>
-                <option value="勉強">勉強</option>
-                <option value="運動">運動</option>
-                <option value="食事">食事</option>
-                <option value="移動">移動</option>
+              <select class="update_tag" name="tag_id">
+                <option value="1">家事</option>
+                <option value="2">勉強</option>
+                <option value="3">運動</option>
+                <option value="4">食事</option>
+                <option value="5">移動</option>
               </select>
             </td>
             <td>
