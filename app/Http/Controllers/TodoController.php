@@ -22,8 +22,7 @@ class TodoController extends Controller
     {
         $user = Auth::user();
         $items = Item::all();
-        // $tags = Tag::all();
-        // $param = ['items' => $items, 'tags' => $tags, 'user' =>$user];
+        $tags = Tag::all();
         $param = ['items' => $items, 'user' =>$user];
         return view('index', $param);
     }
@@ -33,6 +32,7 @@ class TodoController extends Controller
         $form = $request->all();
         // dd($form);
         Item::create($form);
+        // Tag::create($form);
         return redirect('/dashboard');
     }
     public function edit(TodoRequest $request)

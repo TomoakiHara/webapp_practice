@@ -168,23 +168,22 @@
           <th>更新</th>
           <th>削除</th>
         </tr>
-        @foreach($items as $item)
+        @foreach($searchs as $search)
         <tr>
           <td>
-            {{$item -> created_at}}
+            {{$search -> created_at}}
           </td>
-          <form class="update" action="/update/?id={{$item->id}}" method="post">
+          <form class="update" action="/update/?id={{$search->id}}" method="post">
           @csrf
             <td>
-              <input class="update_text" name="todo" type="text" value ="{{$item -> todo}}">
+              <input class="update_text" name="todo" type="text" value ="{{$search -> todo}}">
             </td>
             <td>
-              <select class="update_tag" name="tag_id">
-                <option value="1">家事</option>
-                <option value="2">勉強</option>
-                <option value="3">運動</option>
-                <option value="4">食事</option>
-                <option value="5">移動</option>
+              @if($search->tag_id === $tag->id)
+              <option value="{{$search->tag_id}}" selected>{{$tag->id->tag}}</option>
+                @else
+                <option value="{{$search->tag_id}}">{{$tag->id->tag}}</option>
+                @endif
               </select>
             </td>
             <td>

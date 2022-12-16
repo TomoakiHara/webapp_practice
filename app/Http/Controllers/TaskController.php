@@ -13,13 +13,14 @@ class TaskController extends Controller
             return redirect('/dashboard');
         }   
 
-        // public function search(Request $request)
-        // {
-        //     $form = $request->all();
-        //     // dd($form);
-        //     unset($form['_token']);
-        //     Item::where('todo','tag_id', $request->todo, tag_id)->get;
-        // }
+        public function search(Request $request)
+        {
+            $searchs = Item::where('todo', $request->input)->orWhere('tag_id', $request->input)->get;
+            $param = [
+            'input' => $request->input,
+            ];
+            return view('task',$param);
+        }
     // public function edit(TodoRequest $request)
     // {
     //     $form = $request->all();
