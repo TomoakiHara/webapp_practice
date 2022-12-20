@@ -23,7 +23,7 @@ class TodoController extends Controller
         $user = Auth::user();
         $items = Item::all();
         $tags = Tag::all();
-        $param = ['items' => $items, 'user' =>$user];
+        $param = ['items' => $items, 'tags' => $tags, 'user' =>$user];
         return view('index', $param);
     }
     public function add(TodoRequest $request)
@@ -40,7 +40,7 @@ class TodoController extends Controller
         $form = $request->all();
         // dd($form);
         unset($form['_token']);
-        Item::where('id', $request->id)->update ($form);
+        Item::where('id', $request->id)->Where('tag_id', $request->tag_id)->update ($form);
         return redirect('/dashboard');
     }
     public function delete(Request $request)
@@ -50,11 +50,13 @@ class TodoController extends Controller
         Item::where('id', $request->id)->delete($form);
         return redirect('/dashboard');
     }
-        public function move_taskpage()
+        public function move_taskpage(Request $request)
     {
         $user = Auth::user();
-        $items = Item::all();
-        $param = ['items' => $items, 'user' =>$user];
+        $param = [
+        'searchs' => [],
+        'user' => $user,
+        ];
         return view('task', $param);
     }
 }

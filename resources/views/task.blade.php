@@ -146,7 +146,7 @@
     </section>
     <section class="task_main">
       <div class="search_form">
-        <form class="search" action="/serach" method="post">
+        <form class="search" action="/search" method="post">
           <input class="search_text" name ="todo" type="text">
           <select class="search_tag" name="tag_id">
             <option value="1">家事</option>
@@ -173,17 +173,20 @@
           <td>
             {{$search -> created_at}}
           </td>
-          <form class="update" action="/update/?id={{$search->id}}" method="post">
+          <form class="update" action="/update_task/?id={{$search->id}}" method="post">
           @csrf
             <td>
               <input class="update_text" name="todo" type="text" value ="{{$search -> todo}}">
             </td>
             <td>
-              @if($search->tag_id === $tag->id)
-              <option value="{{$search->tag_id}}" selected>{{$tag->id->tag}}</option>
+              <select class="search_tag" name="tag_id">
+                @foreach($tags as $tag)
+                @if($search->tag_id === $tag->id)
+                <option value="{{$search->tag_id}}" selected>{{$tag->tag}}</option>
                 @else
-                <option value="{{$search->tag_id}}">{{$tag->id->tag}}</option>
+                <option value="{{$search->tag_id}}">{{$tag->tag}}</option>
                 @endif
+                @endforeach
               </select>
             </td>
             <td>
@@ -191,8 +194,8 @@
             </td>
           </form>
           <td>
-            <form class="delete" action="/delete/?id={{$item->id}}" method="post">
-            <input class="delete_botton" type="submit" value="削除">
+            <form class="delete" action="/delete_task/?id={{$search->id}}" method="post">
+              <input class="delete_botton" type="submit" value="削除">
               @csrf
             </form>
           </td>

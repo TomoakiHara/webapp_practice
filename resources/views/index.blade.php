@@ -285,7 +285,6 @@
           <th>削除</th>
         </tr>
         @foreach($items as $item)
-        @foreach($tags as $tag)
         <tr>
           <td>
             {{$item -> created_at}}
@@ -297,11 +296,15 @@
             </td>
             <td>
               <select class="update_tag" name="tag_id">
-              @if($item->tag_id === $tag->id)
-              <option value="{{$item->tag_id}}" selected>{{$tag->id->tag}}</option>
+                @foreach($tags as $tag)
+                @if($item->tag_id === $tag->id)
+                <option value="{{$item->tag_id}}" selected>{{$tag->tag}}</option>
                 @else
-                <option value="{{$item->tag_id}}">{{$tag->id->tag}}</option>
+                <option value="{{$item->tag_id}}">{{$tag->tag}}</option>
                 @endif
+                @endforeach
+                <!-- <option value="{{$item->tag_id}}" {{$item->tag_id === $tag->id ? 'selected' : ''}}>{{$tag->tag}}</option> -->
+              </select>
             </td>
             <td>
               <input class="update_botton" type="submit" value="更新">
