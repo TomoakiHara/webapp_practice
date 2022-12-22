@@ -247,14 +247,14 @@
             @csrf
           </form>
         </div>
-        @if (count($errors) > 0)
-        <ul>
-          @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-          @endforeach
-        </ul>
-        @endif 
       </section>
+      @if (count($errors) > 0)
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+      </ul>
+      @endif 
 
       <section class="todo_main">
         <form action="/move_taskpage" class="tasksearch_link" method="get">

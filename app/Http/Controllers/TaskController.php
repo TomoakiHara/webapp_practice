@@ -47,6 +47,6 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token']);
         Item::where('id', $request->id)->delete($form);
-        return redirect('/move_taskpage');
+        return back();
     }
 }

@@ -31,7 +31,7 @@ Route::post('/update', [TodoController::class, 'edit']);
 Route::post('/delete', [TodoController::class, 'delete']);
 
 Route::get('/move_todopage', [TaskController::class, 'move_todopage']);
-Route::post('/search', [TaskController::class, 'search']);
+Route::get('/search', [TaskController::class, 'search']);
 Route::post('/update_task', [TaskController::class, 'edit']);
 Route::post('/delete_task', [TaskController::class, 'delete']);
 require __DIR__.'/auth.php';

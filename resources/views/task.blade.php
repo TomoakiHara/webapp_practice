@@ -129,24 +129,24 @@
   <article class="task_contents">
     <section class="task_top">
       <h1 class="todo_title">タスク検索</h1>
-        <div class="login">
-          <p class="login_text">{{$user->name.'でログイン中'}}</p>
-          <form action="/logout" method="post">
-            <input class="logout_botton" type="submit" value="ログアウト">
+      <div class="login">
+        <p class="login_text">{{$user->name.'でログイン中'}}</p>
+        <form action="/logout" method="post">
+          <input class="logout_botton" type="submit" value="ログアウト">
             @csrf
-          </form>
-        </div>
-        @if (count($errors) > 0)
-        <ul>
-          @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-          @endforeach
-        </ul>
-        @endif 
+        </form>
+      </div>
     </section>
+    @if (count($errors) > 0)
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    @endif 
     <section class="task_main">
       <div class="search_form">
-        <form class="search" action="/search" method="post">
+        <form class="search" action="/search" method="get">
           <input class="search_text" name ="todo" type="text">
           <select class="search_tag" name="tag_id">
             <option value="1">家事</option>
@@ -179,7 +179,7 @@
               <input class="update_text" name="todo" type="text" value ="{{$search -> todo}}">
             </td>
             <td>
-              <select class="search_tag" name="tag_id">
+              <select class="update_tag" name="tag_id">
                 @foreach($tags as $tag)
                 @if($search->tag_id === $tag->id)
                 <option value="{{$search->tag_id}}" selected>{{$tag->tag}}</option>
