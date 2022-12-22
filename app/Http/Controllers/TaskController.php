@@ -20,7 +20,7 @@ class TaskController extends Controller
         $user = Auth::user();
         $tags = Tag::all();
         $keyword = $request -> input('keyword','');
-        $searchs = Item::where('todo', $request->todo)->Where('tag_id', $request->tag_id)->get();
+        $searchs = Item::where('todo', $request->todo)->orWhere('tag_id', $request->tag_id)->get();
         // dd($request);
         $param = [
         'searchs' => $searchs,
@@ -38,7 +38,9 @@ class TaskController extends Controller
         // dd($form);
         unset($form['_token']);
         Item::where('id', $request->id)->update ($form);
-        return redirect('/move_taskpage');
+        // return redirect('/move_taskpage');
+        // return redirect('/search');
+        return back();
     }
     public function delete(Request $request)
     {

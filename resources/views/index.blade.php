@@ -300,7 +300,7 @@
                 @if($item->tag_id === $tag->id)
                 <option value="{{$item->tag_id}}" selected>{{$tag->tag}}</option>
                 @else
-                <option value="{{$item->tag_id}}">{{$tag->tag}}</option>
+                <option value="{{$tag->id}}">{{$tag->tag}}</option>
                 @endif
                 @endforeach
                 <!-- <option value="{{$item->tag_id}}" {{$item->tag_id === $tag->id ? 'selected' : ''}}>{{$tag->tag}}</option> -->

@@ -30,9 +30,8 @@ class TodoController extends Controller
     {
         // ddd($request);
         $form = $request->all();
-        // dd($form);
+        // dd($request->all());
         Item::create($form);
-        // Tag::create($form);
         return redirect('/dashboard');
     }
     public function edit(TodoRequest $request)
@@ -40,7 +39,7 @@ class TodoController extends Controller
         $form = $request->all();
         // dd($form);
         unset($form['_token']);
-        Item::where('id', $request->id)->Where('tag_id', $request->tag_id)->update ($form);
+        Item::where('id', $request->id)->update ($form);
         return redirect('/dashboard');
     }
     public function delete(Request $request)

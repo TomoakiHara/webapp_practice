@@ -184,7 +184,7 @@
                 @if($search->tag_id === $tag->id)
                 <option value="{{$search->tag_id}}" selected>{{$tag->tag}}</option>
                 @else
-                <option value="{{$search->tag_id}}">{{$tag->tag}}</option>
+                <option value="{{$tag->id}}">{{$tag->tag}}</option>
                 @endif
                 @endforeach
               </select>
